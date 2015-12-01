@@ -53,6 +53,17 @@ public class Main {
         return suits.size() ==1;
     }
 
+    static boolean isStraight (HashSet<Card> hand){
+        HashSet<Card.Rank> ranks = hand.stream()
+                .map(card->{
+                return card.rank;
+
+                })
+                .collect(Collectors.toCollection(HashSet::new));
+        return ranks.size() ==1;
+
+    }
+
     public static void main(String[] args) {
         long beginTime = System.currentTimeMillis();
 
@@ -66,8 +77,10 @@ public class Main {
                 .collect(Collectors.toCollection(HashSet::new));
         System.out.println(hands.size());
 
-        long endtime = System.currentTimeMillis();
-        System.out.println(String.format("Elapsed time: %d msecs", endtime-beginTime));
+        //long endtime = System.currentTimeMillis();
+        //System.out.println(String.format("Elapsed time: %d msecs", endtime-beginTime));
+
 
     }
+
 }
